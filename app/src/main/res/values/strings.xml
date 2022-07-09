@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">kids activity reminder</string>
+    <string-array name="titles">
+        <item>WAKE UP</item>
+        <item>BRUSH YOUR TEETH</item>
+        <item>READING TIME</item>
+        <item>LUNCH BREAK</item>
+        <item>PLAY TIME</item>
+        <item>SUPPER TIME</item>
+        <item>SLEEP TIME</item>
+    </string-array>
+</resources>
