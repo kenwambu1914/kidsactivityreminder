@@ -14,6 +14,9 @@
         android:theme="@style/Theme.KidsActivityReminder"
         tools:targetApi="31">
         <activity
+            android:name=".NotificationMessage"
+            android:exported="false" />
+        <activity
             android:name=".ViewItemActivity"
             android:exported="false" />
         <activity
@@ -37,6 +40,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".BootUpReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".AlarmBroadcast" />
     </application>
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>

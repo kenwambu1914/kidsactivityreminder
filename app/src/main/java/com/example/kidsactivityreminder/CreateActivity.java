@@ -2,8 +2,12 @@ package com.example.kidsactivityreminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,8 +18,11 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class CreateActivity extends AppCompatActivity {
@@ -108,6 +115,7 @@ public class CreateActivity extends AppCompatActivity {
                 int MN=(c.get(Calendar.MONTH)+1);
                 int YR=(c.get(Calendar.YEAR));
 
+
                  if(Activity.equals("")){
                      Toast.makeText(CreateActivity.this, "Activity field is empty!", Toast.LENGTH_SHORT).show();
                  }else {
@@ -122,6 +130,24 @@ public class CreateActivity extends AppCompatActivity {
                                          autoCompleteTextView.setText("");
                                          timebtn.setText("Choose Time");
                                          date_ed.setText("Choose Date");
+                                         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                                         final int id = (int) System.currentTimeMillis();
+                                         Intent intent = new Intent(getApplicationContext(), AlarmBroadcast.class);
+                                         intent.putExtra("activity",Activity);
+                                         intent.putExtra("time",Date);
+                                         intent.putExtra("date",Time);
+                                         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, intent, PendingIntent.FLAG_ONE_SHOT);
+
+
+                                         String timedate = Date +" "+Time;
+                                         DateFormat formatter = new SimpleDateFormat("MM/dd/yy hh:mm");
+                                         try {
+                                             java.util.Date dt = formatter.parse(timedate);
+                                             am.set(AlarmManager.RTC_WAKEUP, dt.getTime(), pendingIntent);
+                                         } catch (ParseException e) {
+                                             e.printStackTrace();
+                                         }
+
                                      }else{
                                          Toast.makeText(CreateActivity.this, "Failed to create activity", Toast.LENGTH_SHORT).show();
                                      }
@@ -136,6 +162,25 @@ public class CreateActivity extends AppCompatActivity {
                                      autoCompleteTextView.setText("");
                                      timebtn.setText("Choose Time");
                                      date_ed.setText("Choose Date");
+
+                                     AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                                     final int id = (int) System.currentTimeMillis();
+                                     Intent intent = new Intent(getApplicationContext(), AlarmBroadcast.class);
+                                     intent.putExtra("activity",Activity);
+                                     intent.putExtra("time",Date);
+                                     intent.putExtra("date",Time);
+                                     PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, intent, PendingIntent.FLAG_ONE_SHOT);
+
+
+                                     String timedate = Date +" "+Time;
+                                     DateFormat formatter = new SimpleDateFormat("MM/dd/yy hh:mm");
+                                     try {
+                                         java.util.Date dt = formatter.parse(timedate);
+                                         am.set(AlarmManager.RTC_WAKEUP, dt.getTime(), pendingIntent);
+                                     } catch (ParseException e) {
+                                         e.printStackTrace();
+                                     }
+
                                  }else{
                                      Toast.makeText(CreateActivity.this, "Failed to create activity", Toast.LENGTH_SHORT).show();
                                  }
@@ -152,6 +197,25 @@ public class CreateActivity extends AppCompatActivity {
                              autoCompleteTextView.setText("");
                              timebtn.setText("Choose Time");
                              date_ed.setText("Choose Date");
+                             AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                             final int id = (int) System.currentTimeMillis();
+                             Intent intent = new Intent(getApplicationContext(), AlarmBroadcast.class);
+                             intent.putExtra("activity",Activity);
+                             intent.putExtra("time",Date);
+                             intent.putExtra("date",Time);
+                             PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, intent, PendingIntent.FLAG_ONE_SHOT);
+
+
+                             String timedate = Date +" "+Time;
+                             DateFormat formatter = new SimpleDateFormat("MM/dd/yy hh:mm");
+                             try {
+                                 java.util.Date dt = formatter.parse(timedate);
+                                 am.set(AlarmManager.RTC_WAKEUP, dt.getTime(), pendingIntent);
+                             } catch (ParseException e) {
+                                 e.printStackTrace();
+                             }
+
+
                          }else{
                              Toast.makeText(CreateActivity.this, "Failed to create activity", Toast.LENGTH_SHORT).show();
                          }
