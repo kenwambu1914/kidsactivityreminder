@@ -107,5 +107,17 @@ public ArrayList<ActivityName> readActivities() {
 
     }
 
+    public void updateStatus(String activity,String time,String date,String status){
+        SQLiteDatabase MyDB =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("activity",activity);
+        contentValues.put("time",time);
+        contentValues.put("date",date);
+        contentValues.put("status",status);
+        MyDB.update("activities",contentValues,"activity=?",new String[]{activity});
+        MyDB.close();
+
+    }
+
     }
 

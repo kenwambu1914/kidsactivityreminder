@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/snow_bg"
     tools:context=".NotificationMessage">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textviewact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#773E3A3A"
+        android:backgroundTint="#66AC9D9D"
+        android:drawableLeft="@drawable/event"
+
+        android:drawablePadding="1dp"
+        android:fontFamily="@font/google_sans_bold"
+        android:text="jumping don"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/textviewdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewact"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#773E3A3A"
+        android:backgroundTint="#66AC9D9D"
+        android:drawableLeft="@drawable/timeclock"
+
+
+        android:drawablePadding="1dp"
+        android:fontFamily="@font/google_sans_medium"
+        android:text="00:00"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/textviewtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewdate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#773E3A3A"
+        android:backgroundTint="#66AC9D9D"
+        android:drawableLeft="@drawable/calendertime"
+        android:drawablePadding="1dp"
+        android:fontFamily="@font/google_sans_medium"
+        android:text="00/00/0000"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewtime"
+        android:text="DONE"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:fontFamily="@font/google_sans_bold"
+        android:background="@drawable/rounded_btn"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/done"
+        />
+
+
+</RelativeLayout>

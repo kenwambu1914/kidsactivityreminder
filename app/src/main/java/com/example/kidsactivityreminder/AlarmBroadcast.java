@@ -17,10 +17,15 @@ public class AlarmBroadcast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Bundle bundle = intent.getExtras();
+        String date1=bundle.getString("date");
+        String time1=bundle.getString("time");
         String date = bundle.getString("date") + " " + bundle.getString("time");
         String activity=bundle.getString("activity");
 
         Intent intent1 = new Intent(context, NotificationMessage.class);
+        intent1.putExtra("activity",activity);
+        intent1.putExtra("date",date1);
+        intent1.putExtra("time",time1);
         intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
